@@ -1,4 +1,4 @@
-FROM arvacims/gerrit-base:2.14.7
+FROM arvacims/gerrit-base:latest
 
 COPY gerrit-create-user.sh /usr/local/bin/gerrit-create-user.sh
 COPY gerrit-upload-ssh-key.sh /usr/local/bin/gerrit-upload-ssh-key.sh
