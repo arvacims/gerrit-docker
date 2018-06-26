@@ -1,9 +1,8 @@
 #!/bin/bash
 
-CI_INIT_ADMIN=test-dev
-CI_INIT_PASSWORD=arvato123
+set -e
 
-JENKINS_WEBURL=jenkins-master:8080/jenkins
+JENKINS_WEBURL=${JENKINS_HOST}:8080/jenkins
 
 SOURCE=`dirname "$0"`
 
@@ -30,5 +29,5 @@ do
 done
 if [ "$PROJECT" != "All-Projects" ]; then
     cat ${SOURCE}/config.xml | sed -e 's/${PROJECT_NAME}/'${PROJECT}'/g' > config_temp.xml
-    curl -XPOST ${JENKINS_WEBURL}/createItem?name=${PROJECT} -u ${CI_INIT_ADMIN}:${CI_INIT_PASSWORD} --data-binary @config_temp.xml -H "Content-Type:text/xml"
+    curl -XPOST ${JENKINS_WEBURL}/createItem?name=${PROJECT} -u ${INITIAL_ADMIN_USER}:${INITIAL_ADMIN_PASSWORD} --data-binary @config_temp.xml -H "Content-Type:text/xml"
 fi
