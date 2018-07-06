@@ -1,4 +1,4 @@
-FROM arvacims/gerrit-base:latest
+FROM arvacims/gerrit-base:2.15.2
 
 ENV INITIAL_ADMIN_USER      admin
 ENV INITIAL_ADMIN_PASSWORD  admin
